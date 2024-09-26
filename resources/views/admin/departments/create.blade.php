@@ -1,6 +1,8 @@
 @extends('admin.dashboard')
+<title>Departments</title>
 
 @section('content')
+
 <div class="container">
     <h1 class="my-4">Create Department</h1>
     @if ($errors->any())
