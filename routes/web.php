@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,16 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::put('/{user}', [UserController::class, 'update'])->name('admin.users.update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
     });
+
+    Route::prefix('admin/departments')->group(function () {
+        Route::get('/', [DepartmentController::class, 'index'])->name('admin.departments.index');
+        Route::get('/create', [DepartmentController::class, 'create'])->name('admin.departments.create');
+        Route::post('/', [DepartmentController::class, 'store'])->name('admin.departments.store');
+        Route::get('/{department}/edit', [DepartmentController::class, 'edit'])->name('admin.departments.edit');  // Fixed here
+        Route::put('/{department}', [DepartmentController::class, 'update'])->name('admin.departments.update');   // Fixed here
+        Route::delete('/{department}', [DepartmentController::class, 'destroy'])->name('admin.departments.destroy'); // Fixed here
+    });
+    
 });
 
 Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
