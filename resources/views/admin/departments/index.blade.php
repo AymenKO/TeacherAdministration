@@ -1,4 +1,5 @@
 @extends('admin.dashboard')
+<title>Departments</title>
 
 @section('content')
 <div class="container">
