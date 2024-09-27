@@ -15,6 +15,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
                         Departments
                         </a>
+                        <div class="sb-sidenav-menu-heading">Groups</div>
+                        {{-- <a class="nav-link" href="{{ route("'admin.groups.index'") }}"> --}}
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Groups
+                        </a>
                     @endif
                     @if (auth()->check() && !auth()->user()->is_admin)
                         <div class="sb-sidenav-menu-heading">Courses</div>
