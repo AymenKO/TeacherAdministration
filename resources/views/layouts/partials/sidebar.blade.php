@@ -23,7 +23,7 @@
                     @endif
                     @if (auth()->check() && !auth()->user()->is_admin)
                         <div class="sb-sidenav-menu-heading">Courses</div>
-                        <a class="nav-link" href="{{ url('teacher.courses.index') }}">
+                        <a class="nav-link" href="{{ route ('teacher.courses.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Courses
                         </a>

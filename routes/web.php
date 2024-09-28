@@ -4,8 +4,14 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+//Admin Controllers
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\GroupController;
+
+//Teacher Controllers
+use App\Http\Controllers\Teacher\CourseController;
+
+
 
 
 /*
@@ -81,5 +87,14 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
     Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
-    // Add other teacher routes here
+
+    Route::prefix('teacher/courses')->group(function () {
+        Route::get('/', [CourseController::class, 'index'])->name('teacher.courses.index');
+        Route::get('/create', [CourseController::class, 'create'])->name('teacher.courses.create');
+        Route::post('/', [CourseController::class, 'store'])->name('teacher.courses.store');
+        Route::get('/{course}/edit', [CourseController::class, 'edit'])->name('teacher.courses.edit');
+        Route::put('/{course}', [CourseController::class, 'update'])->name('teacher.courses.update');
+        Route::delete('/{course}', [CourseController::class, 'destroy'])->name('teacher.courses.destroy');
+    });
+    
 });
