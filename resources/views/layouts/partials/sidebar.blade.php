@@ -16,7 +16,7 @@
                         Departments
                         </a>
                         <div class="sb-sidenav-menu-heading">Groups</div>
-                        {{-- <a class="nav-link" href="{{ route("'admin.groups.index'") }}"> --}}
+                        <a class="nav-link" href="{{ route('admin.groups.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Groups
                         </a>

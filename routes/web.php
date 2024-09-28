@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\GroupController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,17 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::delete('/{department}', [DepartmentController::class, 'destroy'])->name('admin.departments.destroy');
     });
     
+
+    Route::prefix('admin/groups')->group(function () {
+        Route::get('/', [GroupController::class, 'index'])->name('admin.groups.index');
+        Route::get('/create', [GroupController::class, 'create'])->name('admin.groups.create');
+        Route::post('/', [GroupController::class, 'store'])->name('admin.groups.store');
+        Route::get('/{group}/edit', [GroupController::class, 'edit'])->name('admin.groups.edit');
+        Route::put('/{group}', [GroupController::class, 'update'])->name('admin.groups.update');
+        Route::delete('/{group}', [GroupController::class, 'destroy'])->name('admin.groups.destroy');
+    });
+    
+
 });
 
 Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
