@@ -26,6 +26,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Courses
                         </a>
+                        <div class="sb-sidenav-menu-heading">Grades</div>
+                        <a class="nav-link" href="{{ route ('teacher.grades.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Grades
+                        </a>
                     @endif
                     {{-- <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -105,7 +110,7 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"></li>
                 </ol>
-            </div> 
+            </div>
         </main>
         {{-- <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">

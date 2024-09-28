@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\GroupController;
 
 //Teacher Controllers
 use App\Http\Controllers\Teacher\CourseController;
+use App\Http\Controllers\Teacher\GradeController;
+
 
 
 
@@ -50,7 +52,7 @@ use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-    
+
     // Add other admin routes here
 
     Route::prefix('admin/users')->group(function () {
@@ -61,17 +63,17 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::put('/{user}', [UserController::class, 'update'])->name('admin.users.update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
     });
-    
+
 
     Route::prefix('admin/departments')->group(function () {
         Route::get('/', [DepartmentController::class, 'index'])->name('admin.departments.index');
         Route::get('/create', [DepartmentController::class, 'create'])->name('admin.departments.create');
         Route::post('/', [DepartmentController::class, 'store'])->name('admin.departments.store');
-        Route::get('/{department}/edit', [DepartmentController::class, 'edit'])->name('admin.departments.edit');  
-        Route::put('/{department}', [DepartmentController::class, 'update'])->name('admin.departments.update');  
+        Route::get('/{department}/edit', [DepartmentController::class, 'edit'])->name('admin.departments.edit');
+        Route::put('/{department}', [DepartmentController::class, 'update'])->name('admin.departments.update');
         Route::delete('/{department}', [DepartmentController::class, 'destroy'])->name('admin.departments.destroy');
     });
-    
+
 
     Route::prefix('admin/groups')->group(function () {
         Route::get('/', [GroupController::class, 'index'])->name('admin.groups.index');
@@ -81,7 +83,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::put('/{group}', [GroupController::class, 'update'])->name('admin.groups.update');
         Route::delete('/{group}', [GroupController::class, 'destroy'])->name('admin.groups.destroy');
     });
-    
+
 
 });
 
@@ -96,5 +98,16 @@ Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
         Route::put('/{course}', [CourseController::class, 'update'])->name('teacher.courses.update');
         Route::delete('/{course}', [CourseController::class, 'destroy'])->name('teacher.courses.destroy');
     });
-    
+
+
+    Route::prefix('teacher/grades')->group(function () {
+        Route::get('/', [GradeController::class, 'index'])->name('teacher.grades.index');
+        Route::get('/create', [GradeController::class, 'create'])->name('teacher.grades.create');
+        Route::post('/', [GradeController::class, 'store'])->name('teacher.grades.store');
+        Route::get('/{grade}/edit', [GradeController::class, 'edit'])->name('teacher.grades.edit');
+        Route::put('/{grade}', [GradeController::class, 'update'])->name('teacher.grades.update');
+        Route::delete('/{grade}', [GradeController::class, 'destroy'])->name('teacher.grades.destroy');
+    });
+
+
 });
