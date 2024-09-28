@@ -2,7 +2,6 @@
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
-
                 <div class="nav">
                     @if (auth()->check() && auth()->user()->is_admin)
                         <div class="sb-sidenav-menu-heading">Users</div>
@@ -28,7 +27,6 @@
                             Courses
                         </a>
                     @endif
-
                     {{-- <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                         data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -95,9 +93,9 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:
-                    <strong>{{ auth()->user()->name }}</strong>
+                </br>
+                <strong>{{ auth()->user()->name }}</strong>
                 </div>
-
             </div>
         </nav>
     </div>
@@ -107,7 +105,6 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"></li>
                 </ol>
-                
             </div> 
         </main>
         {{-- <footer class="py-4 bg-light mt-auto">

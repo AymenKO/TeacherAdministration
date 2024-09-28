@@ -1,6 +1,5 @@
 @extends('teacher.dashboard')
 <title>Create Course</title>
-
 @section('content')
 <div class="container">
     <h1 class="my-4">Create Course</h1>

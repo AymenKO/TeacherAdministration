@@ -21,7 +21,9 @@
             @foreach ($courses as $course)
                 <tr>
                     <td>{{ $course->courseName }}</td>
-                    <td>{{ $course->courseDescription }}</td>
+                    <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        {{ $course->courseDescription }}
+                    </td>
                     <td>{{ $course->Credit }}</td>
                     <td>
                         <a href="{{ route('teacher.courses.edit', $course) }}" class="btn btn-warning">Edit</a>
