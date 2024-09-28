@@ -24,14 +24,15 @@
                     @include('layouts.partials.sidebar')
                 </div>
                 <div id="layoutSidenav_content">
-                <div>
+                <div class="content ms-3">
                     <main>
                         <div class="container-fluid px-4">
                             @yield('content')
                         </div>
                     {{-- @include ('layouts.partials.footer') --}}
                     </main>
-                </div> 
+                </div>
+                </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
             <script src="{{asset('js/scripts.js')}}"></script>
         </div>
