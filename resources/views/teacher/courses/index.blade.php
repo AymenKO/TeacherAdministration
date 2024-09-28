@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="my-4">Courses</h1>
+    <h1 class="my-4">Manage Courses</h1>
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
