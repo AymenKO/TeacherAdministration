@@ -22,11 +22,11 @@ class GradeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'DS' => 'required|numeric',
-            'TP' => 'required|numeric',
-            'Exam' => 'required|numeric',
+            'DS' => 'required|numeric|min:0|max:20',
+            'TP' => 'required|numeric|min:0|max:20',
+            'Exam' => 'required|numeric|min:0|max:20',
             'course_id' => 'required|exists:courses,id',
-            'student_id' => 'required|exists:students,id',
+            'student_id' => 'required',
         ]);
 
         Grade::create($request->all());
@@ -41,11 +41,11 @@ class GradeController extends Controller
     public function update(Request $request, Grade $grade)
     {
         $request->validate([
-            'DS' => 'required|numeric',
-            'TP' => 'required|numeric',
-            'Exam' => 'required|numeric',
+            'DS' => 'required|numeric|min:0|max:20',
+            'TP' => 'required||min:0|max:20',
+            'Exam' => 'required|numeric|min:0|max:20',
             'course_id' => 'required|exists:courses,id',
-            'student_id' => 'required|exists:students,id',
+            'student_id' => 'required',
         ]);
 
         $grade->update($request->all());

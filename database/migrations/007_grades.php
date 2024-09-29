@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->unsignedFloat('DS');
-            $table->unsignedFloat('TP');
-            $table->unsignedFloat('Exam');
+            $table->float('DS', 5, 2);
+            $table->float('TP', 5, 2);
+            $table->float('Exam', 5, 2);
+            $table->string('student_id');
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
-            $table->foreignId('student_id')->constrained()->onDelete('cascade');
-           $table->timestamps();
+            $table->timestamps();
         });
     }
 

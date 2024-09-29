@@ -11,11 +11,6 @@ class Grade extends Model
 
     protected $fillable = ['DS', 'TP', 'Exam', 'course_id', 'student_id'];
 
-    //one-to-many relation with students
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
 
     //one-to-many relation with courses
     public function course()
