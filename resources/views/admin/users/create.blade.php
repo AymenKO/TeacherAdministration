@@ -25,6 +25,15 @@
             <input type="email" name="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
+            <label for="department_id" class="form-label">Department</label>
+            <select name="department_id" class="form-control" required>
+                <option value="">Select Department</option>
+                @foreach($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->depName }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="password" required>
         </div>

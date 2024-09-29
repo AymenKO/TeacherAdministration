@@ -13,6 +13,7 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Department</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->department ? $user->department->depName : 'No department' }}</td>
                     <td>
                         <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline;">

@@ -15,6 +15,17 @@
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email" class="form-control" id="email" value="{{ old('email', $user->email) }}" required>
         </div>
+        <div class="mb-3">
+            <label for="department_id" class="form-label">Department</label>
+            <select name="department_id" class="form-control" required>
+                <option value="">Select Department</option>
+                @foreach($departments as $department)
+                    <option value="{{ $department->id }}" {{ $user->department_id == $department->id ? 'selected' : '' }}>
+                        {{ $department->depName }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Update User</button>
     </form>
 </div>
