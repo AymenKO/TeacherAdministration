@@ -23,30 +23,34 @@
                     @if (auth()->check() && !auth()->user()->is_admin)
                         <div class="sb-sidenav-menu-heading">Courses</div>
                         <a class="nav-link" href="{{ route ('teacher.courses.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Courses
                         </a>
                         <div class="sb-sidenav-menu-heading">Grades</div>
                         <a class="nav-link" href="{{ route ('teacher.grades.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Grades
                         </a>
+
+
+                        <div class="sb-sidenav-menu-heading">Leaves</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLeaves" aria-expanded="false" aria-controls="collapseLeaves">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Leaves
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLeaves" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ url('teacher.leaves.apply') }}">Apply for a Leave</a>
+                                <a class="nav-link" href="{{ url('teacher.leaves.view') }}">View Leaves</a>
+                            </nav>
+                        </div>
+
                     @endif
-                    {{-- <div class="sb-sidenav-menu-heading">Interface</div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                        data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                        </nav>
-                    </div>
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+
+                    {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                         data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Pages
