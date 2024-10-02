@@ -19,6 +19,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Groups
                         </a>
+                        <div class="sb-sidenav-menu-heading">Leaves</div>
+                        <a class="nav-link" href="{{ route ('admin.leaves.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Leaves
+                        </a>
                     @endif
                     @if (auth()->check() && !auth()->user()->is_admin)
                         <div class="sb-sidenav-menu-heading">Courses</div>
@@ -34,6 +39,16 @@
 
 
                         <div class="sb-sidenav-menu-heading">Leaves</div>
+                        <a class="nav-link" href="{{ route ('teacher.leaves.create') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Apply for a Leave
+                        </a>
+                        <a class="nav-link" href="{{ route ('teacher.leaves.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            View Leaves
+                        </a>
+
+                        {{-- <div class="sb-sidenav-menu-heading">Leaves</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLeaves" aria-expanded="false" aria-controls="collapseLeaves">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -43,10 +58,10 @@
                         <div class="collapse" id="collapseLeaves" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ url('teacher.leaves.apply') }}">Apply for a Leave</a>
-                                <a class="nav-link" href="{{ url('teacher.leaves.view') }}">View Leaves</a>
+                                <a class="nav-link" href="{{ route('teacher.leaves.create') }}">Apply for a Leave</a>
+                                <a class="nav-link" href="{{ route('teacher.leaves.index') }}">View Leaves</a>
                             </nav>
-                        </div>
+                        </div> --}}
 
                     @endif
 

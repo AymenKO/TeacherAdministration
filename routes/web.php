@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LeaveController;
+
 //Admin Controllers
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\GroupController;
@@ -85,6 +87,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     });
 
 
+    Route::get('/admin/leaves', [LeaveController::class, 'adminIndex'])->name('admin.leaves.index');
+    Route::post('/admin/leaves/{id}/accept', [LeaveController::class, 'accept'])->name('admin.leaves.accept');
+    Route::post('/admin/leaves/{id}/reject', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
+
+
 });
 
 Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
@@ -108,6 +115,11 @@ Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
         Route::put('/{grade}', [GradeController::class, 'update'])->name('teacher.grades.update');
         Route::delete('/{grade}', [GradeController::class, 'destroy'])->name('teacher.grades.destroy');
     });
+
+
+    Route::get('/teacher/leaves/apply', [LeaveController::class, 'create'])->name('teacher.leaves.create');
+    Route::post('/teacher/leaves', [LeaveController::class, 'store'])->name('teacher.leaves.store');
+    Route::get('/teacher/leaves', [LeaveController::class, 'index'])->name('teacher.leaves.index');
 
 
 });
