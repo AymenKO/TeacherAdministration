@@ -18,7 +18,13 @@
             <tr>
                 <td>{{ $leave->leaveDate }}</td>
                 <td>{{ $leave->leaveReason }}</td>
-                <td>{{ $leave->leaveStatus }}</td>
+                <td><span class="badge
+                    @if($leave->leaveStatus == 'Accepted') bg-success
+                    @elseif($leave->leaveStatus == 'Rejected') bg-danger
+                    @else bg-warning text-dark
+                    @endif">
+                    {{ $leave->leaveStatus }}
+                </span></td>
             </tr>
             @endforeach
         </tbody>

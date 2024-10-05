@@ -21,8 +21,12 @@
                         </a>
                         <div class="sb-sidenav-menu-heading">Leaves</div>
                         <a class="nav-link" href="{{ route ('admin.leaves.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                             Leaves
+                        </a>
+                        <a class="nav-link" href="{{ route ('admin.leaves.history') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                            Leaves History
                         </a>
                     @endif
                     @if (auth()->check() && !auth()->user()->is_admin)
@@ -40,13 +44,15 @@
 
                         <div class="sb-sidenav-menu-heading">Leaves</div>
                         <a class="nav-link" href="{{ route ('teacher.leaves.create') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                             Apply for a Leave
                         </a>
                         <a class="nav-link" href="{{ route ('teacher.leaves.index') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            View Leaves
+                            <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                            Leaves Requests
                         </a>
+
+
 
                         {{-- <div class="sb-sidenav-menu-heading">Leaves</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

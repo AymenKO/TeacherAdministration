@@ -53,5 +53,14 @@ use App\Models\Leave;
             $leave->update(['leaveStatus' => 'Rejected']);
             return redirect()->route('admin.leaves.index')->with('success', 'Leave rejected.');
         }
+
+
+
+        //Admin history
+        public function adminHistory() {
+            $leaves = Leave::with('teacher')->get(); // Fetch leave with teacher details
+            return view('admin.leaves.history', compact('leaves'));
+        }
+
     }
 

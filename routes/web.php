@@ -90,6 +90,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/leaves', [LeaveController::class, 'adminIndex'])->name('admin.leaves.index');
     Route::post('/admin/leaves/{id}/accept', [LeaveController::class, 'accept'])->name('admin.leaves.accept');
     Route::post('/admin/leaves/{id}/reject', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
+    Route::get('/admin/leaves/history', [LeaveController::class, 'adminHistory'])->name('admin.leaves.history');
 
 
 });
