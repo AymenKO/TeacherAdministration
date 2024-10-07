@@ -76,38 +76,11 @@
 
                     <!-- Chat Button -->
                     <div id="chat-button" class="position-fixed bottom-0 end-0 p-3">
-                        <button class="btn btn-primary rounded-circle position-relative" onclick="toggleChat()">
+                        <a href="{{ route('chatify') }}" class="btn btn-primary rounded-circle position-relative">
                             <i class="fas fa-comment"></i>
-                            <span id="unread-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                5 <!-- Example unread count -->
-                            </span>
-                        </button>
+                        </a>
                     </div>
 
-                    <!-- Chat Box -->
-                    <div id="chat-box" class="card shadow position-fixed bottom-0 end-0 m-3" style="width: 300px; height: 400px; display: none;">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5>Chats</h5>
-                            <button class="btn btn-sm btn-close" onclick="toggleChat()"></button>
-                        </div>
-                        <div class="card-body overflow-auto">
-                            <!-- Users list here -->
-                            <ul class="list-group" id="user-list">
-                                {{-- @foreach($users as $user)
-                                    <li class="list-group-item" onclick="openChat({{ $user->id }})">
-                                        <i class="fas fa-user"></i> {{ $user->name }}
-                                    </li>
-                                @endforeach --}}
-                            </ul>
-                        </div>
-                        <div class="card-footer d-none" id="chat-footer">
-                            <!-- Chat Input -->
-                            <div id="chat-bubble">
-                                <textarea class="form-control" id="chat-input" rows="1" placeholder="Type your message..."></textarea>
-                                <button class="btn btn-primary mt-1" onclick="sendMessage()">Send</button>
-                            </div>
-                        </div>
-                    </div>
 
 
                     </main>

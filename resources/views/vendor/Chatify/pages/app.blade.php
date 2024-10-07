@@ -63,7 +63,12 @@
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                    <a href="/"><i class="fas fa-home"></i></a>
+                    @if (auth()->check() && auth()->user()->is_admin)
+                    <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i></a>
+                    @endif
+                    @if (auth()->check() && !auth()->user()->is_admin)
+                    <a href="{{ route('teacher.dashboard') }}"><i class="fas fa-home"></i></a>
+                    @endif
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>
