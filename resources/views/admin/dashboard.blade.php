@@ -9,6 +9,8 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
         <script>
             function toggleChat() {
                 var chatBox = document.getElementById('chat-box');
@@ -102,6 +104,19 @@
                                         <p class="card-text fw-bold">{{ $totalDepartments }}</p>
                                     </div>
                                     <i class="fas fa-building fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-3">
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="card text-dark bg-light shadow-sm p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Total Groups</h5>
+                                        <p class="card-text fw-bold">{{ $totalGroups }}</p>
+                                    </div>
+                                    <i class="bi bi-people-fill fa-2x"></i>
                                 </div>
                             </div>
                         </div>
