@@ -54,6 +54,8 @@ use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+
 
     // Add other admin routes here
 

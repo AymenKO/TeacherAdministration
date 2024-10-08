@@ -69,10 +69,59 @@
                 <div id="layoutSidenav_content">
                     <div class="content ms-3">
                     <main>
+
+                        <!--Sidebar Content-->
                         <div class="container-fluid px-4">
                             @yield('content')
                         </div>
                     {{-- @include ('layouts.partials.footer') --}}
+
+
+                    <!-- Main dashboard -->
+                    @if(Request::route()->getName() == 'admin.dashboard')
+
+                    <div class="row mt-4 ml-3">
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="card text-dark bg-light shadow-sm p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Total Teachers</h5>
+                                        <p class="card-text">{{ $totalTeachers }}</p>
+                                    </div>
+                                    <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-3">
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="card text-dark bg-light shadow-sm p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Total Departments</h5>
+                                        <p class="card-text">{{ $totalDepartments }}</p>
+                                    </div>
+                                    <i class="fas fa-building fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ml-3">
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="card text-dark bg-light shadow-sm p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">Pending Leaves</h5>
+                                        <p class="card-text">{{ $pendingLeaves }}</p>
+                                    </div>
+                                    <i class="fas fa-clock fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @endif
 
                     <!-- Chat Button -->
                     <div id="chat-button" class="position-fixed bottom-0 end-0 p-3">
