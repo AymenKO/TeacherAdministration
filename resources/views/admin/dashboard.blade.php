@@ -82,58 +82,122 @@
                     <!-- Main dashboard -->
                     @if(Request::route()->getName() == 'admin.dashboard')
 
-                    <div class="row mt-4 ml-3">
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="card text-dark bg-light shadow-sm p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="card-title">Total Teachers</h5>
-                                        <p class="card-text fw-bold">{{ $totalTeachers }}</p>
+                    <div class="d-flex flex-wrap mt-4 justify-content-center">
+                        <div class="card text-dark bg-light shadow-sm p-3 m-2" style="width: 200px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Total Teachers</h5>
+                                    <p class="card-text fw-bold">{{ $totalTeachers }}</p>
+                                </div>
+                                <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div class="card text-dark bg-light shadow-sm p-3 m-2" style="width: 200px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Total Departments</h5>
+                                    <p class="card-text fw-bold">{{ $totalDepartments }}</p>
+                                </div>
+                                <i class="fas fa-building fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div class="card text-dark bg-light shadow-sm p-3 m-2" style="width: 200px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Total Groups</h5>
+                                    <p class="card-text fw-bold">{{ $totalGroups }}</p>
+                                </div>
+                                <i class="bi bi-people-fill fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div class="card text-dark bg-light shadow-sm p-3 m-2" style="width: 200px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title">Pending Leaves</h5>
+                                    <p class="card-text fw-bold">{{ $pendingLeaves }}</p>
+                                </div>
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap mt-4 justify-content-center">
+                        <!-- Leave Analytics Table -->
+                        <div class="col-lg-5">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 bg-dark text-white">
+                                    <h6 class="m-0 font-weight-bold">Leaves Overview</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Status</th>
+                                                    <th>Count</th>
+                                                    <th>Percentage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table-warning">
+                                                    <td>Pending</td>
+                                                    <td>{{ $pendingLeaves }}</td>
+                                                    <td>{{ number_format(($pendingLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                </tr>
+                                                <tr class="table-success">
+                                                    <td>Accepted</td>
+                                                    <td>{{ $acceptedLeaves }}</td>
+                                                    <td>{{ number_format(($acceptedLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                </tr>
+                                                <tr class="table-danger">
+                                                    <td>Rejected</td>
+                                                    <td>{{ $rejectedLeaves }}</td>
+                                                    <td>{{ number_format(($rejectedLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Monthly Leaves Overview -->
+                        <div class="col-lg-5 ml-20">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 bg-dark text-white">
+                                    <h6 class="m-0 font-weight-bold">Leaves by Month</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Month</th>
+                                                    <th>Pending</th>
+                                                    <th>Accepted</th>
+                                                    <th>Rejected</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($leavesByMonth as $month)
+                                                    <tr>
+                                                        <td>{{ $month->month }}</td>
+                                                        <td>{{ $month->pending }}</td>
+                                                        <td>{{ $month->accepted }}</td>
+                                                        <td>{{ $month->rejected }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row ml-3">
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="card text-dark bg-light shadow-sm p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="card-title">Total Departments</h5>
-                                        <p class="card-text fw-bold">{{ $totalDepartments }}</p>
-                                    </div>
-                                    <i class="fas fa-building fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ml-3">
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="card text-dark bg-light shadow-sm p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="card-title">Total Groups</h5>
-                                        <p class="card-text fw-bold">{{ $totalGroups }}</p>
-                                    </div>
-                                    <i class="bi bi-people-fill fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row ml-3">
-                        <div class="col-md-3 col-sm-6 mb-4">
-                            <div class="card text-dark bg-light shadow-sm p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="card-title">Pending Leaves</h5>
-                                        <p class="card-text fw-bold">{{ $pendingLeaves }}</p>
-                                    </div>
-                                    <i class="fas fa-clock fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
 
                     @endif
