@@ -37,7 +37,7 @@
     padding: 0; /* Remove padding */
     font-size: 15px; /* Adjust icon size */
     margin-right: 15px;
-}
+        }
 
 
         #chat-box {
@@ -50,8 +50,14 @@
             font-size: 0.8em;
             z-index: 1001;
         }
-
+        .fc-day:hover {
+    background-color: #f0f8ff; /* Light background on hover */
+    cursor: pointer;
+        }
         </style>
+        <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -82,7 +88,7 @@
                     <!-- Main dashboard -->
                     @if(Request::route()->getName() == 'admin.dashboard')
 
-                    <div class="d-flex flex-wrap mt-4 justify-content-center">
+                    <div class="d-flex flex-wrap mt-10 justify-content-center">
                         <div class="card text-dark bg-light shadow-sm p-3 m-2" style="width: 200px;">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
@@ -124,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex flex-wrap mt-4 justify-content-center">
+                    <div class="d-flex flex-wrap mt-10 justify-content-center">
                         <!-- Leave Analytics Table -->
                         <div class="col-lg-5">
                             <div class="card shadow mb-4">
@@ -196,8 +202,47 @@
                                 </div>
                             </div>
                         </div>
+                    <div id='calendar' class="offset-md-6 col-lg-5 "></div>
                     </div>
 
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        editable: true,
+        events: [], // Load tasks here
+        dateClick: function(info) {
+            // Optionally, handle date click
+        },
+        eventReceive: function(info) {
+            // Handle event receive
+        },
+    });
+    calendar.render();
+});
+$(function() {
+    $(".task").draggable({
+        revert: "invalid",
+        helper: "clone"
+    });
+
+    $("#calendar").droppable({
+        accept: ".task",
+        drop: function(event, ui) {
+            var taskDate = $(ui.draggable).data("date");
+            var eventData = {
+                title: ui.draggable.text(),
+                start: taskDate
+            };
+            calendar.addEvent(eventData);
+        }
+    });
+});
+
+    </script>
 
 
                     @endif
