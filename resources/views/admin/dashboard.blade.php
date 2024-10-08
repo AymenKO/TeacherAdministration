@@ -86,7 +86,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5 class="card-title">Total Teachers</h5>
-                                        <p class="card-text">{{ $totalTeachers }}</p>
+                                        <p class="card-text fw-bold">{{ $totalTeachers }}</p>
                                     </div>
                                     <i class="fas fa-chalkboard-teacher fa-2x"></i>
                                 </div>
@@ -99,7 +99,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5 class="card-title">Total Departments</h5>
-                                        <p class="card-text">{{ $totalDepartments }}</p>
+                                        <p class="card-text fw-bold">{{ $totalDepartments }}</p>
                                     </div>
                                     <i class="fas fa-building fa-2x"></i>
                                 </div>
@@ -112,7 +112,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <h5 class="card-title">Pending Leaves</h5>
-                                        <p class="card-text">{{ $pendingLeaves }}</p>
+                                        <p class="card-text fw-bold">{{ $pendingLeaves }}</p>
                                     </div>
                                     <i class="fas fa-clock fa-2x"></i>
                                 </div>
