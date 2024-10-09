@@ -74,6 +74,14 @@
                         </div>
                     {{-- @include ('layouts.partials.footer') --}}
 
+                    <!-- Main dashboard -->
+                    @if(Request::route()->getName() == 'teacher.dashboard')
+
+
+
+
+
+                    @endif
                     <!-- Chat Button -->
                     <div id="chat-button" class="position-fixed bottom-0 end-0 p-3">
                         <a href="{{ route('chatify') }}" class="btn btn-primary rounded-circle position-relative">

@@ -50,7 +50,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
@@ -96,9 +95,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 
 });
+use App\Http\Controllers\Teacher\TeacherDashboardController;
 
 Route::middleware(['auth', 'verified', 'teacher'])->group(function () {
     Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'index'])->name('teacher.dashboard');
+    Route::get('/teacher/dashboard', [TeacherDashboardController::class, 'dashboard'])->name('teacher.dashboard');
 
     Route::prefix('teacher/courses')->group(function () {
         Route::get('/', [CourseController::class, 'index'])->name('teacher.courses.index');
