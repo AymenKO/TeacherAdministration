@@ -92,8 +92,8 @@
     cursor: pointer;
         }
         #grade-chart {
-        max-width: 400px; /* Adjust width as needed */
-        max-height: 250px; /* Adjust height as needed */
+        max-width: 800px; /* Adjust width as needed */
+        max-height: 500px; /* Adjust height as needed */
     }
         </style>
         <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
