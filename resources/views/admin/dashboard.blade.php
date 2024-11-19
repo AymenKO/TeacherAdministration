@@ -130,81 +130,86 @@
                         </div>
                     </div>
 
-                    <div class="d-flex flex-wrap mt-10 justify-content-center">
-                        <!-- Leave Analytics Table -->
-                        <div class="col-lg-5">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 bg-dark text-white">
-                                    <h6 class="m-0 font-weight-bold">Leaves Overview</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-hover" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Status</th>
-                                                    <th>Count</th>
-                                                    <th>Percentage</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="table-warning">
-                                                    <td>Pending</td>
-                                                    <td>{{ $pendingLeaves }}</td>
-                                                    <td>{{ number_format(($pendingLeaves / $totalLeaves) * 100, 2) }}%</td>
-                                                </tr>
-                                                <tr class="table-success">
-                                                    <td>Accepted</td>
-                                                    <td>{{ $acceptedLeaves }}</td>
-                                                    <td>{{ number_format(($acceptedLeaves / $totalLeaves) * 100, 2) }}%</td>
-                                                </tr>
-                                                <tr class="table-danger">
-                                                    <td>Rejected</td>
-                                                    <td>{{ $rejectedLeaves }}</td>
-                                                    <td>{{ number_format(($rejectedLeaves / $totalLeaves) * 100, 2) }}%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Monthly Leaves Overview -->
-                        <div class="col-lg-5 ml-20">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 bg-dark text-white">
-                                    <h6 class="m-0 font-weight-bold">Leaves by Month</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-hover" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Month</th>
-                                                    <th>Pending</th>
-                                                    <th>Accepted</th>
-                                                    <th>Rejected</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($leavesByMonth as $month)
+                    <div class="row">
+                        <div class="col-md-5">
+                            <!-- Leaves Overview -->
+                            <div class="col mt-10 ml-20">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 bg-dark text-white">
+                                        <h6 class="m-0 font-weight-bold">Leaves Overview</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover" width="100%" cellspacing="0">
+                                                <thead>
                                                     <tr>
-                                                        <td>{{ $month->month }}</td>
-                                                        <td>{{ $month->pending }}</td>
-                                                        <td>{{ $month->accepted }}</td>
-                                                        <td>{{ $month->rejected }}</td>
+                                                        <th>Status</th>
+                                                        <th>Count</th>
+                                                        <th>Percentage</th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="table-warning">
+                                                        <td>Pending</td>
+                                                        <td>{{ $pendingLeaves }}</td>
+                                                        <td>{{ number_format(($pendingLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                    </tr>
+                                                    <tr class="table-success">
+                                                        <td>Accepted</td>
+                                                        <td>{{ $acceptedLeaves }}</td>
+                                                        <td>{{ number_format(($acceptedLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                    </tr>
+                                                    <tr class="table-danger">
+                                                        <td>Rejected</td>
+                                                        <td>{{ $rejectedLeaves }}</td>
+                                                        <td>{{ number_format(($rejectedLeaves / $totalLeaves) * 100, 2) }}%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monthly Leaves Overview -->
+                            <div class="col ml-20">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 bg-dark text-white">
+                                        <h6 class="m-0 font-weight-bold">Leaves by Month</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Month</th>
+                                                        <th>Pending</th>
+                                                        <th>Accepted</th>
+                                                        <th>Rejected</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($leavesByMonth as $month)
+                                                        <tr>
+                                                            <td>{{ $month->month }}</td>
+                                                            <td>{{ $month->pending }}</td>
+                                                            <td>{{ $month->accepted }}</td>
+                                                            <td>{{ $month->rejected }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <div id='calendar' class="offset-md-6 col-lg-5 "></div>
-                    </div>
 
+                        <div class="col-md-5 offset-md-1 mt-10">
+                            <div id='calendar'></div>
+                        </div>
+                    </div>
 
 
 <script>
